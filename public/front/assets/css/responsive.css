@@ -1,0 +1,774 @@
+@media(max-width: 1400px){
+	.header-left ul { 
+	    gap: 40px;
+	    padding-left: 50px;
+	}
+	.hero-section.for .hero-text h1 {
+     	font-size: 56px;
+	}
+	.bottom-style .tet-style {
+    	width: 35%;
+	} 
+	.footer-bottom {
+    	margin-top: 80px;
+	}
+	.team-style a {
+     	font-size: 16px;
+	}
+	.reviews > img {
+	     bottom: 17%; 
+	    width: 18%;
+	}
+	.webilte-text {
+    	width: 64%;
+	} 
+	.question-heading h3 {
+    	font-size: 26px;
+     	width: 86%;
+     }
+	footer img.shap-3 {
+	     top: 2%;
+	     left: 2%;
+     }
+     .hero-section.for .bottom-style .rating > img {
+	    right: 111%;
+	    width: 80%;
+	    bottom: 97%;
+	}
+	.hero-section p {
+	    padding-bottom: 40px; 
+	} 
+     .hero-section.for .bottom-style {
+    	width: 70%;
+     }
+	.footer-left h2 {
+     font-size: 50px;
+	}
+	.pricing-table h3 {
+	    font-size: 56px; 
+	}
+	.subtitle span {
+    	font-size: 14px;
+	}
+	.webilte-text p {
+	    font-size: 22px;
+	    line-height: 40px;
+	}
+	.webilte-text h3 {
+    	font-size: 22px;
+	}
+	.project-img img {
+    	width: 90%;
+	} 
+	.project-img img.shap-3 {
+		width: auto;
+	}
+	.heading h2 {
+	    font-size: 76px;
+	    line-height: 76px; 
+	    width: 43%;
+    }
+	.pricing-top h3 span {
+		font-size: 16px;
+	}
+    .pricing-top > span {
+     	font-size: 20px;
+    }
+    .team-style {
+     	gap: 20px;
+	}
+    .video-img {
+     	right: -17%;
+     }
+     .video-img i {
+     left: 40%;
+    top: 50%;
+     width: 130px;
+    height: 130px;
+     }
+     .heading-rating h3 {
+    	font-size: 80px;
+	}
+     .team-style > div {
+	    margin-top: 20px; 
+	    width: 64%;
+	}
+	.heading-rating h3 span {
+    	font-size: 34px;
+	}
+	.team-style h3 {
+    	font-size: 34px;
+     }
+     .video-img i:before, .video-img i:after {
+     	 width: 130px;
+    height: 130px;
+     }
+		.who-we-are {
+     		background-size: 40%;
+		}
+		.services img.shap-3 {
+     	left: 2%;
+     }
+	.header-btn {
+    	padding-left: 50px;
+	}
+	.project-style h2,
+	h1,.recommended-companies h2 {
+	    font-size: 70px;
+	    line-height: 70px;
+	} 
+	.experience h3 {
+    		font-size: 70px;
+		}
+		.recommended-companies img.shap-3 {
+     	width: 130px;
+	}
+	.workflow-section img.shap-3 {
+     	left: 2%;
+     }
+     .workflow-section img.shap-4 {
+    position: absolute;
+    right: 2%;
+    top: 38%;
+    animation: spin-top 3s infinite;
+}
+.workflow h3 {
+    font-size: 30px;
+     line-height: 32px;
+ }
+	.recommended-companies img.shap-4 {
+     	width: 140px;
+	}
+	.workflow img {
+     	width: 140px;
+	}
+	.marquee-item img {
+    	width: 60px;
+	}
+	.marquee-item {
+	    width: 150px;
+	    margin-left: 40px;
+	}
+     .get-a-quote input, .get-a-quote input[type="number"] {
+     		height: 55px;
+		}
+		.rating {
+     		margin-top: 50px;
+     }
+     .rating > img {
+     		width: 55%;
+		}
+		.hero-section {
+     padding-top: 210px;
+     padding-bottom: 100px;
+		}
+		.branding-style {
+	    	gap: 24px;
+     }
+		video#heroVideo {
+     				right: -1%;
+     				width: 129%;
+		}
+		.branding-style p { 
+    padding-bottom: 30px;
+    width: 90%;
+		}
+		.group-img i {
+     top: 6px;
+    right: 6px;
+     }
+		.radio-button input {
+    width: 22px;
+    height: 22px;
+		}
+		.branding-style h2 {
+     		font-size: 30px;
+     } 
+}
+@media(max-width: 1200px){
+		video#heroVideo {
+			display: none;
+		} 
+		.bottom-style .rating > img {
+    	right: 100%;
+     }
+		footer img.shap-3 {
+     	top: -2%;
+     }
+     .hero-section.for .hero-text span ,
+     .hero-section.for .hero-text span {
+	     padding: 5px 44px;
+	     font-size: 14px;
+	}
+     .reviews-img > img {
+     	width: 90%;
+	}
+     .footer-bottom {
+     	margin-top: 80px;
+    }
+		.header-left ul {
+			display: none;
+		}
+		.blog-data {
+    	padding: 30px;
+     }
+     .swiper-button-style {
+     	bottom: 45px;
+     }
+
+		.footer-contact h4 br {
+			display: none;
+		}
+		.project-style {
+     	padding: 60px 60px;
+	}
+	.footer-left h2 {
+	    font-size: 40px;
+	    line-height: 42px;
+	}
+	.pricing-table {
+     	padding: 30px;
+     }
+		.recommended-companies {
+  	   width: 50%;
+ }
+ .blog-data h3 {
+    font-size: 20px;
+ }
+ .blog-bottom-links a {
+    font-size: 12px;
+}
+.blog-bottom-links a svg {
+    width: 14px;
+}
+ .heading-rating p {
+    width: 100%;
+}
+ .team-style h3 {
+    font-size: 30px;
+    margin-bottom: 25px;
+ } 
+ .video-img {
+    right: -30%;
+}
+.video-img i {
+    left: 32%;
+     }
+     .pricing-table p {
+     	width: 100%;
+	}
+ .workflow h3 {
+    font-size: 26px;  
+    line-height: 28px; 
+    width: 100%;
+ }
+
+ .recommended-companies {
+     width: 100%;
+ }
+		.heading h2 {
+	    font-size: 60px;
+	    line-height: 60px; 
+		}
+		.gap {
+		    padding: 100px 0;
+		}
+		.workflow-section img.shap-3 {
+			left: 1%;
+		}
+		.workflow-section img.shap-4 {
+			right: 1%;
+		}
+		.no-top{
+		    padding-top: 0;
+		}
+		.heading > img {
+     		left: 35%;
+     }
+     .recommended-companies img.shap-3 {
+     	left: -10%;
+     }
+     .recommended-companies img.shap-4 {
+     	right: -12%;
+     }
+		.heading p {
+	    width: 40%;
+	    padding-bottom: 6px;
+		}
+		.who-we-are {
+     		background-size: 40%;
+		}
+		.no-bottom{
+		    padding-bottom: 0;
+		}
+		.header-btn {
+ 		   padding-left: 0;
+		}
+		.hero-text h1 {
+     		width: 100%;
+		}
+		.get-a-quote span {
+     		font-size: 14px; 
+		}
+		.get-a-quote > img { 
+	    right: 30px;
+	    top: 30px;
+	    width: 74px;
+			}
+		.branding-style svg {
+    		width: 40px;
+		}
+		.get-a-quote {
+     		padding: 30px 30px;
+     }
+     .branding-style p {
+     		width: 100%;
+		}
+     .branding-style h2 {
+    		font-size: 28px;
+    		padding-bottom: 8px;
+		}
+     .hero-section {
+    padding-top: 160px;
+    padding-bottom: 80px;
+		}
+     header { 
+    padding-top: 20px;
+    padding-bottom: 0px;
+		}
+		.project-style h2,
+		h1,.recommended-companies h2 {
+    font-size: 60px;
+    line-height: 70px;
+		}
+}
+@media(max-width: 1024px) {
+	.footer-fixed .webilte-footer {
+		position: relative;
+	}
+	.wrapper {
+     	margin-bottom: 0 !important;
+	}
+}
+@media(max-width: 993px){
+		.get-a-quote { 
+		    margin-top: 40px;
+		}
+		.hero-text.subscribe-form {
+     	width: 100%;
+	}
+		.hero-text.two {
+     	width: 100%;
+     }
+     .hero-section.for .bottom-style {
+     	width: 100%;
+     }
+		.footer-bottom-style {
+		    flex-wrap: wrap;
+		    gap: 20px;
+	}
+	.bottom-style .tet-style {
+    	width: 52%;
+	}
+	.webilte-reviews {
+	    flex-wrap: wrap;
+	    gap: 30px;
+	    justify-content: center;
+	}
+		.footer-center {
+	    padding-top: 40px;
+	    padding-bottom: 30px;
+	}
+	.webilte-text {
+    	width: 100%;
+	}
+		.blog-img img {
+    	width: 100%;
+	}
+	.footer-contact {
+	     gap: 20px;
+	    margin-bottom: 30px;
+	}
+	.blog-style {
+		margin-bottom: 20px;
+	}
+		.pricing-table.two {
+		     margin-top: 20px;
+		    margin-bottom: 20px;
+		}
+		.footer-link {
+    	padding-left: 0;
+	}
+		.question-heading h3 {
+		    font-size: 20px; 
+		    width: 100%; 
+		}
+		.accordion .title { 
+		    padding: 25px 20px; 
+		}
+		.question-heading img { 
+		    margin-top: 40px;
+		    margin-bottom: 30px;
+		}
+		.accordion .content {
+		    padding: 0px 20px;
+		    padding-bottom: 20px;
+		}	
+		.rating > img {
+			display: none;
+		}
+		.project-img {
+	     	border: 1px solid #404040;
+		    margin-top: -1px;
+		}
+		.heading-rating {
+     	padding-top: 25px;
+	}
+		.team-style {
+     	margin-bottom: 20px;
+	}
+		.video-img {
+	    right: 0;
+	    position: relative;
+	}
+		.heading > img {
+			display: none;
+		}
+		.heading-rating h3 {
+    	font-size: 60px;
+	}
+	.heading-rating img {
+     	width: 56px;
+	}
+		.workflow.center {
+	    margin-left: 0px;
+	    margin-right: 0px;
+	}
+		.branding-style p {
+    		padding-bottom: 14px;
+    }
+    .video-img {
+	    right: 0;
+	    position: relative;
+	    margin-left: 60px;
+	    margin-right: 60px;
+	} 
+	.video-img i {
+    left: 50%;
+    top: 50%;
+     }
+	.video-img img {
+		width: 100%;
+	}
+    .branding-style {
+     padding-bottom: 50px;
+		}
+		.heading {
+     border-bottom: 0px solid #404040; 
+     padding-bottom: 0px; 
+	    align-items: end;
+	    margin-bottom: 50px;
+	    flex-wrap: wrap;
+		}
+		.experience {
+     		margin-bottom: 20px;
+		}
+		.heading h2 {
+     		width: 100%;
+		}
+		.heading p {
+    width: 100%;
+    padding-bottom: 6px;
+    padding-top: 14px;
+		}
+}
+@media(max-width: 768px){
+		.header-left { 
+     padding-right: 0px; 
+		}
+		.get-subscribee {
+     	width: 100%;
+     }
+		.footer-bottom-style { 
+	    justify-content: center;
+	    text-align: center;
+	}
+	.bottom-style {
+	    flex-wrap: wrap;
+	    padding-top: 30px;
+	}
+	.hero-text.two h1 {
+	    font-size: 46px;
+	    line-height: 60px;
+	}
+	.hero-section.for .hero-text span ,
+	.hero-text.subscribe-form span {
+     letter-spacing: 1px;
+     padding: 5px 30px;
+     font-size: 12px;
+	}
+	.bottom-style .tet-style,
+	.bottom-style .rating {
+     	width: 100%;
+	}
+	.webilte-reviews {
+     	padding-bottom: 40px;
+	}
+	.swiper-button-style {
+	    bottom: 18px;
+	    position: relative;
+	    right: 0;
+	    text-align: center;
+	}
+		.footer-bottom { 
+	    margin-top: 60px;
+	    padding-bottom: 30px;
+	    padding-top: 30px;
+	}
+		.recommended-companies img.shap-3 {
+     	left: -18%;
+     }
+     .project-style h2,
+		h1,.recommended-companies h2 {
+    font-size: 50px;
+    line-height: 60px;
+}
+		.gap {
+		    padding: 80px 0;
+		}
+		.no-top{
+		    padding-top: 0;
+		}
+		.no-bottom{
+		    padding-bottom: 0;
+		}
+		.button-main {
+     padding-left: 20px;
+    padding-right: 20px;
+     font-size: 14px;
+     }
+     .button-arrow-wrapper {
+     height: 50px;
+    min-height: 50px;
+    width: 50px;
+    min-width: 50px;
+     }
+		.header-left {
+     padding: 0;  
+     background: transparent;
+    padding-right: 0px;
+		}
+		.hero-section {
+    padding-top: 120px;
+    padding-bottom: 60px;
+		}
+}
+@media(max-width: 576px){
+	   .gap {
+		    padding: 60px 0;
+		}
+		.no-top{
+		    padding-top: 0;
+		}
+		.no-bottom{
+		    padding-bottom: 0;
+		}
+		.hs-responsive-embed-youtube iframe {
+    	 height: 400px;
+	}
+		 img.shap-3,.reviews > img,
+		.recommended-companies img.shap-3,
+		 img.shap-4 {
+			display: none;
+		}
+		.hero-section.for .bottom-style {
+     	padding-top: 0;
+	}
+	.hero-shap img.shap-three {
+     	bottom: 39%;
+     }
+		.marquee {
+		     margin-top: 60px !important;
+		    padding-top: 60px;
+	}
+	.video-img { 
+	    margin-left: 10px;
+	    margin-right: 10px;
+	}
+	.video-img i { 
+    width: 100px;
+    height: 100px; 
+	}
+	.video-img i:before, .video-img i:after {
+	    width: 100px;
+	    height: 100px;
+	}
+	.video-img svg { 
+    padding: 0;
+    width: 10px;
+	}
+	.services-style i {
+	    width: 100px;
+	    height: 100px; 
+	    padding: 26px;
+	}
+}
+@media(max-width: 500px){
+	.project-style h2,
+		h1,.recommended-companies h2 {
+    font-size: 40px;
+    line-height: 50px;
+}
+.tet-style {
+     text-align: left;
+}
+#contact {
+    padding: 60px 0px;
+}
+.hero-text {
+     text-align: center;
+} 
+.bottom-style .rating {
+     justify-content: center;
+    display: flex;
+}
+.top-bar .logo img {
+    width: 120px;
+}
+.hero-section.two-style ul.stars {
+     justify-content: center;
+}
+.accordion .title {
+     padding-right: 45px;
+}
+.scroll-to-top { 
+    right: -30px;
+    bottom: 70px;
+    transform: rotate(90deg); 
+}
+.get-a-quote input, .get-a-quote input[type="number"] {
+     margin-bottom: 10px;
+     }
+     .tet-style {
+ 		width: 100%;
+     }
+     .branding-style h2 {
+	    font-size: 24px;
+	    padding-bottom: 5px;
+		}
+}
+@media(max-width: 480px){
+		.experience { 
+    padding: 10px 10px; 
+}
+ .button-arrow-wrapper {
+    height: 38px;
+    min-height: 38px;
+    width: 38px;
+    min-width: 38px;
+}
+.button-arrow-wrapper i svg {
+    width: 13px;
+    height: auto;
+}
+.hero-text .rating {
+    margin-top: 00px;
+}
+.footer-contact i {
+    width: 75px;
+    height: 75px; 
+}
+.footer-contact svg {
+     width: 31px;
+}
+.button-main {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12px;
+    padding: 9px 20px;
+}
+.hero-section.for .hero-text h1 {
+     font-size: 42px;
+}
+.hero-text.two h1 {
+    font-size: 40px;
+    line-height: 50px;
+}
+.hs-responsive-embed-youtube iframe {
+     height: 300px;
+}
+.webilte-text p {
+    font-size: 18px;
+    line-height: 30px;
+}
+.heading-rating {
+     flex-wrap: wrap;
+}
+.hero-section.for ul.stars {
+	justify-content: center;
+} 
+.project-style {
+     padding: 30px;
+}
+.experience p {
+    font-size: 12px; 
+    line-height: 20px; 
+}
+.webilte-text h3 {
+    font-size: 20px;
+}
+.get-a-quote > img {
+    right: 20px;
+    top: 31px;
+    width: 60px;
+}
+.team-style { 
+    flex-wrap: wrap;
+}
+.experience h3 {
+    font-size: 50px;
+		}
+		.team-style {
+	    flex-wrap: wrap;
+	    justify-content: center;
+	    gap: 10px;
+	}
+	.theme-list li { 
+	    padding-bottom: 8px; 
+	}
+}
+@media(max-width: 450px){
+		.heading h2 {
+    font-size: 40px;
+    line-height: 40px;
+		}
+		.get-subscribee input {
+			height: 50px;
+		}
+		.get-subscribee button {
+     
+    position: relative;
+    right: 0;
+    top: 0;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 14px;
+	}
+	.two-style .hero-shap img.shap-three {
+    	bottom: 43%;
+	}
+	.get-subscribee button:hover {
+    	background-color: #ffffff2e;
+	}
+		.hero-shap img.shap-one {
+     right: -31%;
+    top: -7%;
+     }
+}
+@media(max-width: 410px){
+	.hero-text.two h1 {
+	    font-size: 30px;
+	    line-height: 36px;
+	}
+}
