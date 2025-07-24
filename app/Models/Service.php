@@ -27,4 +27,24 @@ class Service extends Model
     {
         return $this->hasMany(Candidat::class, 'service_id');
     }
+
+    public function paiements()
+    {
+        return $this->hasMany(Paiement::class, 'service_id');
+    }
+
+    public function cars()
+    {
+        return $this->hasMany(Car::class, 'service_id');
+    }
+
+    public function agents()
+    {
+        return $this->hasMany(Agent::class, 'service_id');
+    }
+
+    public function hotels()
+    {
+        return $this->hasMany(Hotel::class, 'service_id');
+    }
 }

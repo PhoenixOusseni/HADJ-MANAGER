@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\AgenceAdmin;
 
+use App\Models\Agent;
 use App\Models\Agence;
 use App\Models\Service;
 use App\Models\Candidat;
@@ -50,11 +51,11 @@ class AdmAgcServiceController extends Controller
 
     public function show($id){
         $service = Service::findOrFail($id);
-
         $agence = AdminHelpers::getAdminAgence();
         $agenceId = AdminHelpers::getAdminAgenceId();
+        $agents = Agent::where('agence_id', $agenceId)->latest()->get();
         $candidats = Candidat::where('agence_id', $agenceId)->latest()->get();
-        return view('agence_admin.services.show', compact('service', 'candidats'));
+        return view('agence_admin.services.show', compact('service', 'candidats', 'agents'));
     }
 
     public function edit($id)
