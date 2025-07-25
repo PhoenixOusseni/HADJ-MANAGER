@@ -27,7 +27,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header card-no-border">
                     <h3>Formulaire </h3>
                 </div>
@@ -53,7 +53,7 @@
                                 <div class="row">
                                     <div class="col-md">
                                         <div class="mb-3">
-                                            <label class="form-label">Nom</label>
+                                            <label class="form-label small">Nom</label>
                                             <input class="form-control" type="text" name="nom" value="{{ old('nom', $candidat->nom) }}">
                                         </div>
                                     </div>
@@ -62,7 +62,7 @@
                                 <div class="row">
                                     <div class="col-md">
                                         <div class="mb-3">
-                                            <label class="form-label">Prénom</label>
+                                            <label class="form-label small">Prénom</label>
                                             <input class="form-control" type="text" name="prenom" value="{{ old('prenom', $candidat->prenom) }}">
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                 <div class="row">
                                     <div class="col-md">
                                         <div class="mb-3">
-                                            <label class="form-label">Date de naissance</label>
+                                            <label class="form-label small">Date de naissance</label>
                                             <input class="form-control" type="date" name="date_naissance" value="{{ old('date_naissance', $candidat->date_naissance) }}">
                                         </div>
                                     </div>
@@ -80,7 +80,7 @@
                                 <div class="row">
                                     <div class="col-md">
                                         <div class="mb-3">
-                                            <label class="form-label">Lieu de naissance</label>
+                                            <label class="form-label small">Lieu de naissance</label>
                                             <input class="form-control" type="text" name="lieu_naissance" value="{{ old('lieu_naissance', $candidat->lieu_naissance) }}">
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                                 <div class="row">
                                     <div class="col-md">
                                         <div class="mb-3">
-                                            <label class="form-label">Téléphone</label>
+                                            <label class="form-label small">Téléphone</label>
                                             <input class="form-control" type="text" name="telephone" value="{{ old('telephone', $candidat->telephone) }}">
                                         </div>
                                     </div>
@@ -98,9 +98,9 @@
                                 <div class="row">
                                     <div class="col-md">
                                         <div class="mb-3">
-                                            <label class="form-label">Sexe</label>
+                                            <label class="form-label small">Sexe</label>
                                             <select class="form-control" name="sexe">
-                                                <option value="">-- Sélectionner --</option>
+                                                <option value="">Sélectionner ici</option>
                                                 <option value="Masculin" {{ old('sexe', $candidat->sexe) == 'Masculin' ? 'selected' : '' }}>Masculin</option>
                                                 <option value="Feminin" {{ old('sexe', $candidat->sexe) == 'Feminin' ? 'selected' : '' }}>Féminin</option>
                                             </select>
@@ -113,7 +113,7 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Ville / Province</label>
+                                                <label class="form-label small">Ville / Province</label>
                                                 <input class="form-control" type="text" name="ville_province" value="{{ old('ville_province', $candidat->ville_province) }}">
                                             </div>
                                         </div>
@@ -122,7 +122,7 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Type de pièce</label>
+                                                <label class="form-label small">Type de pièce</label>
                                                 <select class="form-control" name="type_piece">
                                                     <option value="">-- Sélectionner --</option>
                                                     <option value="CNIB" {{ old('type_piece', $candidat->type_piece) == 'CNIB' ? 'selected' : '' }}>CNIB</option>
@@ -135,7 +135,7 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Numéro de pièce</label>
+                                                <label class="form-label small">Numéro de pièce</label>
                                                 <input class="form-control" type="text" name="numero_piece" value="{{ old('numero_piece', $candidat->numero_piece) }}">
                                             </div>
                                         </div>
@@ -144,7 +144,7 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Date de délivrance</label>
+                                                <label class="form-label small">Date de délivrance</label>
                                                 <input class="form-control" type="date" name="date_delivrance" value="{{ old('date_delivrance', $candidat->date_delivrance) }}">
                                             </div>
                                         </div>
@@ -153,7 +153,7 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Date d'expiration</label>
+                                                <label class="form-label small">Date d'expiration</label>
                                                 <input class="form-control" type="date" name="date_expiration" value="{{ old('date_expiration', $candidat->date_expiration) }}">
                                             </div>
                                         </div>
@@ -162,7 +162,7 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Nationalité</label>
+                                                <label class="form-label small">Nationalité</label>
                                                 <input class="form-control" type="text" name="nationalite" value="{{ old('nationalite', $candidat->nationalite) }}">
                                             </div>
                                         </div>
@@ -174,9 +174,9 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Statut</label>
+                                                <label class="form-label small">Statut</label>
                                                 <select class="form-control" name="statut">
-                                                    <option value="">-- Sélectionner --</option>
+                                                    <option value="">Sélectionner ici</option>
                                                     <option value="Provisoir" {{ old('statut', $candidat->statut) == 'Provisoir' ? 'selected' : '' }}>Provisoire</option>
                                                     <option value="Définitif" {{ old('statut', $candidat->statut) == 'Définitif' ? 'selected' : '' }}>Définitif</option>
                                                 </select>
@@ -187,9 +187,9 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Statut paiement</label>
+                                                <label class="form-label small">Statut paiement</label>
                                                 <select class="form-control" name="statut_paiement">
-                                                    <option value="">-- Sélectionner --</option>
+                                                    <option value="">Sélectionner ici</option>
                                                     <option value="Non payé" {{ old('statut_paiement', $candidat->statut_paiement) == 'Non payé' ? 'selected' : '' }}>Non payé</option>
                                                     <option value="Paiement partiel" {{ old('statut_paiement', $candidat->statut_paiement) == 'Paiement partiel' ? 'selected' : '' }}>Paiement partiel</option>
                                                     <option value="Tout payé" {{ old('statut_paiement', $candidat->statut_paiement) == 'Tout payé' ? 'selected' : '' }}>Tout payé</option>
@@ -201,9 +201,9 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Agent facilitateur</label>
+                                                <label class="form-label small">Agent facilitateur</label>
                                                 <select class="form-control" name="agent_id">
-                                                    <option value="">-- Sélectionner --</option>
+                                                    <option value="">Sélectionner ici</option>
                                                     @foreach($agents as $agent)
                                                     <option value="{{ $agent->id }}" {{ old('agent_id', $candidat->agent_id) == $agent->id ? 'selected' : '' }}>{{ $agent->nom }}</option>
                                                     @endforeach
@@ -215,9 +215,9 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Service</label>
+                                                <label class="form-label small">Service</label>
                                                 <select class="form-control" name="service_id">
-                                                    <option value="">-- Sélectionner --</option>
+                                                    <option value="">Sélectionner ici</option>
                                                     @foreach($services as $service)
                                                     <option value="{{ $service->id }}" {{ old('service_id', $candidat->service_id) == $service->id ? 'selected' : '' }}>{{ $service->libelle }}</option>
                                                     @endforeach
@@ -228,7 +228,7 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="mb-3">
-                                                <label class="form-label">Photo</label>
+                                                <label class="form-label small">Photo</label>
                                                 <input class="form-control" type="file" name="photo">
                                                 @if($candidat->photo)
                                                 <div class="col-sm-1 mt-2">
@@ -247,19 +247,20 @@
                                 <div class="row">
                                     <div class="col-md">
                                         <div class="mb-3">
-                                            <label class="form-label">Observation</label>
+                                            <label class="form-label small">Observation</label>
                                             <textarea class="form-control" name="observation" rows="4">{{ old('observation', $candidat->observation) }}</textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <hr>
 
-                        <div class="col-12 text-end">
-                            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                        <div class="col-12 text-start">
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i>&thinsp;&thinsp;&thinsp; modifier</button>
+                            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-close"></i>&thinsp;&thinsp;&thinsp; Annuler</button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

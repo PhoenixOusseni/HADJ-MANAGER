@@ -23,7 +23,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header card-no-border">
                     <h3>Formulaire de mise a jour </h3>
                 </div>

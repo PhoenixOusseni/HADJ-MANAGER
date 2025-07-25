@@ -26,7 +26,7 @@
 <div class="container-fluid">
     <div class="row p-0">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-body">
                     <div class="product-page-details">
                         <h3>Details</h3>

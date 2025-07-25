@@ -29,7 +29,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <div class="card">
+            <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-body">
                     <div class="table-responsive theme-scrollbar">
                         <table class="display" id="row_create" style="width:100%">

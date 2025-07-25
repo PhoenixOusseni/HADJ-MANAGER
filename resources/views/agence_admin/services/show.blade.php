@@ -12,24 +12,19 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-6 col-12">
-            <h2></h2>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-sm-12">
-            <div class="card" id="default">
+            <div class="card shadow" id="default" style="border-radius: 5px;">
                 <div class="card-header card-no-border pt-4 pb-0">
                     <h3 class="mb-1">Actions</h3>
                 </div>
                 <div class="card-body btn-showcase">
-                    <a href="#" class="btn btn-outline-primary-2x" data-bs-toggle="modal" data-bs-target="#addDipBackdrop">Voir détails de ce service</a>
-                    <a href="#" class="btn btn-outline-secondary-2x">Scanner un passport</a>
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAgentBackdrop"><i class="fa-solid fa-user"></i>&thinsp;&thinsp;&thinsp; Ajouter un Agent</a>
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCandidatBackdrop"><i class="fa-solid fa-users"></i>&thinsp;&thinsp;&thinsp; Ajouter un Candidat</a>
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPayBackdrop"><i class="fa-solid fa-money-bill"></i>&thinsp;&thinsp;&thinsp; Ajouter un Paiement</a>
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVolBackdrop"><i class="fa-solid fa-globe"></i>&thinsp;&thinsp;&thinsp; Ajouter un Vol</a>
-                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addHotelBackdrop"><i class="fa-solid fa-hotel"></i>&thinsp;&thinsp;&thinsp; Ajouter un Hotel</a>
+                    <a href="#" class="btn btn-outline-primary-2x" data-bs-toggle="modal" data-bs-target="#addDipBackdrop"><i class="fa-solid fa-eye"></i>&thinsp;&thinsp;&thinsp; Voir détails</a>
+                    <a href="#" class="btn btn-outline-secondary-2x"><i class="fa-solid fa-camera"></i>&thinsp;&thinsp;&thinsp; Scanner un passport</a>
+                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addAgentBackdrop"><i class="fa-solid fa-user"></i>&thinsp;&thinsp;&thinsp; Ajouter un Agent</a>
+                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addCandidatBackdrop"><i class="fa-solid fa-users"></i>&thinsp;&thinsp;&thinsp; Ajouter un Candidat</a>
+                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addPayBackdrop"><i class="fa-solid fa-money-bill"></i>&thinsp;&thinsp;&thinsp; Ajouter un Paiement</a>
+                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addVolBackdrop"><i class="fa-solid fa-globe"></i>&thinsp;&thinsp;&thinsp; Ajouter un Vol</a>
+                    <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addHotelBackdrop"><i class="fa-solid fa-hotel"></i>&thinsp;&thinsp;&thinsp; Ajouter un Hotel</a>
                 </div>
             </div>
         </div>
@@ -109,7 +104,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <div class="card">
+            <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header card-no-border pt-4">
                     <h3 class="mb-1">Liste des paiements</h3>
                 </div>
@@ -165,7 +160,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <div class="card">
+            <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header card-no-border pt-4">
                     <h3 class="mb-1">Liste des hotels</h3>
                 </div>
@@ -209,7 +204,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>
@@ -220,7 +214,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <div class="card">
+            <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header card-no-border pt-4">
                     <h3 class="mb-1">Liste des bus</h3>
                 </div>
@@ -274,7 +268,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <div class="card">
+            <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header card-no-border pt-4">
                     <h3 class="mb-1">Liste des agents</h3>
                 </div>
@@ -328,4 +322,5 @@
 
 {{-- Service modal --}}
 @include('agence_admin/services/service-modal')
+
 @endsection

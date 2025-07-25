@@ -27,7 +27,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header card-no-border">
                     <h3>Formulaire </h3>
                 </div>
@@ -300,8 +300,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 text-end">
-                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        <div class="col-12 text-start">
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i>&thinsp;&thinsp;&thinsp; Enregistrer</button>
+                            <a href="{{ route('adm_agc_candidats.index') }}" class="btn btn-secondary">Annuler</a>
                         </div>
                     </form>
                 </div>

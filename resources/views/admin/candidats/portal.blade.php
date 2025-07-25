@@ -24,7 +24,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
-            <div class="card">
+            <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header card-no-border pb-0">
                     <h3>Selectionner l'agence</h3>
                     <p class="mt-1 mt-1 mb-0">Cette liste vous permet de selectionner l'agence que vous voulez ajouter les candidats </p>
