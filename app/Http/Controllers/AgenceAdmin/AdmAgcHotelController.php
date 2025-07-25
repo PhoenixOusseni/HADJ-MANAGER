@@ -26,11 +26,17 @@ class AdmAgcHotelController extends Controller
         return view('agence_admin.hotels.show', compact('hotel'));
     }
 
+    public function form($id)
+    {
+        $service = Service::find($id);
+        return view('agence_admin.hotels.create', compact( 'service'));
+    }
+
     public function create()
     {
         $agenceId = AdminHelpers::getAdminAgenceId();
         $services = Service::where('agence_id', $agenceId)->latest()->get();
-        return view('agence_admin.hotels.create', compact('services'));
+        return view('agence_admin.hotels.portal', compact('services'));
     }
 
     public function store(Request $request)

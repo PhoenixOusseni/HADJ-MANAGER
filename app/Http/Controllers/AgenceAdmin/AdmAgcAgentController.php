@@ -23,11 +23,17 @@ class AdmAgcAgentController extends Controller
         return view('agence_admin.agents.index', compact('agents'));
     }
 
+    public function form($id)
+    {
+        $service = Service::find($id);
+        return view('agence_admin.agents.create', compact( 'service'));
+    }
+
     public function create()
     {
         $agenceId = AdminHelpers::getAdminAgenceId();
         $services = Service::where('agence_id', $agenceId)->latest()->get();
-        return view('agence_admin.agents.create', compact('services'));
+        return view('agence_admin.agents.portal', compact('services'));
     }
 
     public function show($id){

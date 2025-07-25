@@ -39,6 +39,7 @@
                                     <th>Prénom</th>
                                     <th>Téléphone</th>
                                     <th>Statut</th>
+                                    <th>Service</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -50,6 +51,7 @@
                                     <td>{{ $agent->prenom }}</td>
                                     <td>{{ $agent->telephone }}</td>
                                     <td>{{ $agent->statut }}</td>
+                                    <td>{{ $agent->service->libelle }}</td>
                                     <td>
                                         @can('view', $agent)
                                         <a href="{{ route('adm_agc_agents.show', $agent->id) }}" class="btn btn-square btn-info m-1"><i class="fa-solid fa-eye"></i></a>
@@ -75,6 +77,7 @@
                                     <th>Prénom</th>
                                     <th>Téléphone</th>
                                     <th>Statut</th>
+                                    <th>Service</th>
                                     <th>Actions</th>
                                 </tr>
                             </tfoot>

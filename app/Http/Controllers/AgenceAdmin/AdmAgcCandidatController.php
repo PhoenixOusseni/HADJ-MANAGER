@@ -24,13 +24,22 @@ class AdmAgcCandidatController extends Controller
         return view('agence_admin.candidats.index', compact('candidats'));
     }
 
+    public function form($id)
+    {
+        $service = Service::find($id);
+        $agence = AdminHelpers::getAdminAgence();
+        $agenceId = AdminHelpers::getAdminAgenceId();
+        $agents = Agent::where('agence_id', $agenceId)->latest()->get();
+        return view('agence_admin.candidats.create', compact( 'service', 'agents'));
+    }
+
     public function create()
     {
         $agence = AdminHelpers::getAdminAgence();
         $agenceId = AdminHelpers::getAdminAgenceId();
         $agents = Agent::where('agence_id', $agenceId)->latest()->get();
         $services = Service::where('agence_id', $agenceId)->latest()->get();
-        return view('agence_admin.candidats.create', compact('agents', 'services'));
+        return view('agence_admin.candidats.portal', compact('agents', 'services'));
     }
 
     public function genererIdentifiantsCandidat()

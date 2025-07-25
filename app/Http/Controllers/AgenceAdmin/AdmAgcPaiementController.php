@@ -39,12 +39,20 @@ class AdmAgcPaiementController extends Controller
         return view('agence_admin.paiements.show', compact('paiement'));
     }
 
+    public function form($id)
+    {
+        $service = Service::find($id);
+        $agenceId = AdminHelpers::getAdminAgenceId();
+        $candidats = Candidat::where('agence_id', $agenceId)->latest()->get();
+        return view('agence_admin.paiements.create', compact( 'service', 'candidats'));
+    }
+
     public function create()
     {
         $agenceId = AdminHelpers::getAdminAgenceId();
         $candidats = Candidat::where('agence_id', $agenceId)->latest()->get();
         $services = Service::where('agence_id', $agenceId)->latest()->get();
-        return view('agence_admin.paiements.create', compact('candidats', 'services'));
+        return view('agence_admin.paiements.portal', compact( 'services'));
     }
 
     public function store(Request $request)

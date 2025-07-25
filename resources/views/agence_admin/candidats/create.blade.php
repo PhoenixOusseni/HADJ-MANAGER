@@ -266,12 +266,8 @@
                                     <div class="col-md">
                                         <div class="mb-3">
                                             <label class="form-label">Service</label>
-                                            <select class="form-control" name="service_id">
-                                                <option value="">-- Sélectionner --</option>
-                                                @foreach($services as $service)
-                                                <option value="{{ $service->id }}" {{ old('service_id') == $service->id ? 'selected' : '' }}>{{ $service->libelle }}</option>
-                                                @endforeach
-                                            </select>
+                                            <input class="form-control" type="hidden" name="service_id" value="{{ $service->id }}">
+                                            <input class="form-control" type="text" value="{{ $service->libelle }}" readonly>
                                             @error('service_id')
                                             <div class="text-danger mt-2">{{ $message }}</div>
                                             @enderror
