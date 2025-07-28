@@ -50,15 +50,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-7 login_one_image"><img class="bg-img-cover bg-center"
-                    src="{{ asset('main/assets/images/login/login3.png') }}" alt="looginpage"></div>
+                    src="{{ asset('main/assets/images/login/img-haj.jpg') }}" alt="looginpage"></div>
             <div class="col-xl-5 p-0">
                 <div class="login-card login-dark login-bg">
                     <div>
                         <div class="mb-4"><a class="logo" href="{{ route('home') }}"><img
-                                    class="img-fluid for-light m-auto"
-                                    src="{{ asset('main/assets/images/logo/') }}" alt="looginpage"><img
-                                    class="for-dark" src="{{ asset('main/assets/images/logo/2.png') }}"
-                                    alt="logo"></a></div>
+                                    class="img-fluid for-light m-auto" src="{{ asset('main/assets/images/logo/') }}"
+                                    alt="looginpage"><img class="for-dark"
+                                    src="{{ asset('main/assets/images/logo/2.png') }}" alt="logo"></a></div>
                         <div class="login-main">
                             @yield('content')
                         </div>

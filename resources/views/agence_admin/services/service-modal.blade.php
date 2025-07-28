@@ -199,7 +199,8 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="mb-3">
-                                        <label class="form-label small">Prénom <span class="text-danger">*</span></label>
+                                        <label class="form-label small">Prénom <span
+                                                class="text-danger">*</span></label>
                                         <input class="form-control" type="text" name="prenom"
                                             value="{{ old('prenom') }}">
                                         @error('prenom')
@@ -255,7 +256,8 @@
                             <div class="row">
                                 <div class="col-md">
                                     <div class="mb-3">
-                                        <label class="form-label small">Sexe <span class="text-danger">*</span></label>
+                                        <label class="form-label small">Sexe <span
+                                                class="text-danger">*</span></label>
                                         <select class="form-select" name="sexe">
                                             <option value="">Sélectionner ici</option>
                                             <option value="Masculin"
@@ -472,6 +474,155 @@
     </div>
 </div>
 
+{{-- Modal scann candidat --}}
+<div class="modal fade" id="scannCandidatBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header bg-light-primary">
+                <h5 class="modal-title" id="staticBackdropLabel">Scanner un candidat...</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (session('error'))
+                    <div class="alert alert-danger mb-4">{{ session('error') }}</div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger mb-4">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <form action="{{ route('adm_agc_candidats.store') }}" method="POST" enctype="multipart/form-data"
+                    class="form theme-form flat-form">
+                    @csrf
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label small">Nom <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" name="nom" value="{{ old('nom') }}">
+                            @error('nom')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small">Prénom <span class="text-danger">*</span></label>
+                            <input class="form-control" type="text" name="prenom" value="{{ old('prenom') }}">
+                            @error('prenom')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label small">Date de naissance</label>
+                            <input class="form-control" type="date" name="date_naissance"
+                                value="{{ old('date_naissance') }}">
+                            @error('date_naissance')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small">Lieu de naissance</label>
+                            <input class="form-control" type="text" name="lieu_naissance"
+                                value="{{ old('lieu_naissance') }}">
+                            @error('lieu_naissance')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label small">Téléphone</label>
+                            <input class="form-control" type="text" name="telephone"
+                                value="{{ old('telephone') }}">
+                            @error('telephone')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small">Sexe <span class="text-danger">*</span></label>
+                            <select class="form-select" name="sexe">
+                                <option value="">Sélectionner ici</option>
+                                <option value="Masculin" {{ old('sexe') == 'Masculin' ? 'selected' : '' }}>
+                                    Masculin</option>
+                                <option value="Feminin" {{ old('sexe') == 'Feminin' ? 'selected' : '' }}>
+                                    Féminin</option>
+                            </select>
+                            @error('sexe')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label small">Service</label>
+                            <input class="form-control" type="hidden" name="service_id"
+                                value="{{ $service->id }}" readonly>
+                            <input class="form-control" type="text" value="{{ $service->libelle }}" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small">Ville / Province</label>
+                            <input class="form-control" type="text" name="ville_province"
+                                value="{{ old('ville_province') }}">
+                            @error('ville_province')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label small">Numéro de pièce</label>
+                            <input class="form-control" type="text" name="numero_piece"
+                                value="{{ old('numero_piece') }}">
+                            @error('numero_piece')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small">Date de délivrancel</label>
+                            <input class="form-control" type="date" name="date_delivrance"
+                                value="{{ old('date_delivrance') }}">
+                            @error('date_delivrance')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label small">Date d'expiration</label>
+                            <input class="form-control" type="date" name="date_expiration"
+                                value="{{ old('date_expiration') }}">
+                            @error('date_expiration')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small">Nationalité</label>
+                            <input class="form-control" type="text" name="nationalite"
+                                value="{{ old('nationalite') }}">
+                            @error('nationalite')
+                                <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="col-12 text-start">
+                        <button type="submit" class="btn btn-primary"><i
+                                class="fa-solid fa-save"></i>&thinsp;&thinsp;&thinsp;Enregistrer</button>
+                        <button type="reset" class="btn btn-danger"><i
+                                class="fa-solid fa-close"></i>&thinsp;&thinsp;&thinsp;Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 {{-- Modal add payement --}}
 <div class="modal fade" id="addPayBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -638,8 +789,10 @@
                                             <option value="Charter"
                                                 {{ old('type_vol') == 'Charter' ? 'selected' : '' }}>Charter</option>
                                             <option value="Régulier"
-                                                {{ old('type_vol') == 'Régulier' ? 'selected' : '' }}>Régulier</option>
-                                            <option value="Autre" {{ old('type_vol') == 'Autre' ? 'selected' : '' }}>
+                                                {{ old('type_vol') == 'Régulier' ? 'selected' : '' }}>Régulier
+                                            </option>
+                                            <option value="Autre"
+                                                {{ old('type_vol') == 'Autre' ? 'selected' : '' }}>
                                                 Autre</option>
                                         </select>
                                     </div>

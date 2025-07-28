@@ -59,14 +59,14 @@
                             <label class="form-label">Coût</label>
                         </div>
                         <div class="col-sm-9">
-                            <input class="form-control" type="number" name="cout" step="0.01" placeholder="Entrez le coût du service" value="{{ old('cout') }}" required>
+                            <input class="form-control" type="number" name="cout" step="0.01" placeholder="Entrez le coût du service" value="{{ old('cout') }}">
                         </div>
 
                         <div class="col-sm-3">
                             <label class="form-label">Catégorie</label>
                         </div>
                         <div class="col-sm-9">
-                            <input class="form-control" type="text" name="categorie" placeholder="Ex: Formation, Séminaire..." value="{{ old('categorie') }}" required>
+                            <input class="form-control" type="text" name="categorie" placeholder="Ex: Formation, Séminaire..." value="{{ old('categorie') }}">
                         </div>
 
                         <div class="col-sm-3">

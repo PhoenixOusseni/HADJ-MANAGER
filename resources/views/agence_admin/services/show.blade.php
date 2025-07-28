@@ -19,7 +19,7 @@
                 </div>
                 <div class="card-body btn-showcase">
                     <a href="#" class="btn btn-outline-primary-2x" data-bs-toggle="modal" data-bs-target="#addDipBackdrop"><i class="fa-solid fa-eye"></i>&thinsp;&thinsp;&thinsp; Voir détails</a>
-                    <a href="#" class="btn btn-outline-secondary-2x"><i class="fa-solid fa-camera"></i>&thinsp;&thinsp;&thinsp; Scanner un passport</a>
+                    <a href="#" class="btn btn-outline-secondary-2x" data-bs-toggle="modal" data-bs-target="#scannCandidatBackdrop"><i class="fa-solid fa-camera"></i>&thinsp;&thinsp;&thinsp; Scanner un passport</a>
                     <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addAgentBackdrop"><i class="fa-solid fa-user"></i>&thinsp;&thinsp;&thinsp; Ajouter un Agent</a>
                     <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addCandidatBackdrop"><i class="fa-solid fa-users"></i>&thinsp;&thinsp;&thinsp; Ajouter un Candidat</a>
                     <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addPayBackdrop"><i class="fa-solid fa-money-bill"></i>&thinsp;&thinsp;&thinsp; Ajouter un Paiement</a>
