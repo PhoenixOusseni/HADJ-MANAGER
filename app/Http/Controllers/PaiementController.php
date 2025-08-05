@@ -7,6 +7,7 @@ use App\Models\Service;
 use App\Models\Candidat;
 use App\Models\Paiement;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PaiementController extends Controller
@@ -40,7 +41,7 @@ class PaiementController extends Controller
         $agence = Agence::find($id);
         $services = Service::where('agence_id', $id)->latest()->get();
         $candidats = Candidat::where('agence_id', $id)->latest()->get();
-        return view('admin.paiements.create', compact('agence', 'services','candidats'));
+        return view('admin.paiements.create', compact('agence', 'services', 'candidats'));
     }
 
     public function list($id)
@@ -102,7 +103,8 @@ class PaiementController extends Controller
         }
     }
 
-    public function show(Paiement $paiement){
+    public function show(Paiement $paiement)
+    {
         return view('admin.paiements.show', compact('paiement'));
     }
 

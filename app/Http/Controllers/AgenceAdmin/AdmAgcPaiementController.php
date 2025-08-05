@@ -7,7 +7,9 @@ use App\Models\Candidat;
 use App\Models\Paiement;
 use Illuminate\Http\Request;
 use App\Helpers\AdminHelpers;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
+use NumberFormatter;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AdmAgcPaiementController extends Controller
@@ -44,7 +46,7 @@ class AdmAgcPaiementController extends Controller
         $service = Service::find($id);
         $agenceId = AdminHelpers::getAdminAgenceId();
         $candidats = Candidat::where('agence_id', $agenceId)->latest()->get();
-        return view('agence_admin.paiements.create', compact( 'service', 'candidats'));
+        return view('agence_admin.paiements.create', compact('service', 'candidats'));
     }
 
     public function create()
@@ -52,7 +54,7 @@ class AdmAgcPaiementController extends Controller
         $agenceId = AdminHelpers::getAdminAgenceId();
         $candidats = Candidat::where('agence_id', $agenceId)->latest()->get();
         $services = Service::where('agence_id', $agenceId)->latest()->get();
-        return view('agence_admin.paiements.portal', compact( 'services'));
+        return view('agence_admin.paiements.portal', compact('services'));
     }
 
     public function store(Request $request)
@@ -87,7 +89,7 @@ class AdmAgcPaiementController extends Controller
         return view('agence_admin.paiements.edit', compact('paiement', 'candidats', 'services'));
     }
 
-    public function update(Request $request, Paiement $paiement)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate([
             'candidat_id' => 'required|exists:candidats,id',
@@ -99,7 +101,15 @@ class AdmAgcPaiementController extends Controller
         ]);
 
         try {
-            $paiement->update($validated);
+            $paiement = Paiement::find($id);
+            $paiement->update([
+                'candidat_id' => $validated['candidat_id'],
+                'montant' => $validated['montant'],
+                'date_paiement' => $validated['date_paiement'],
+                'mode_paiement' => $validated['mode_paiement'],
+                'observation' => $validated['observation'],
+                'service_id' => $validated['service_id'],
+            ]);
             Alert::success('Succès', 'Paiement mis à jour avec succès');
             return redirect()->route('adm_agc_paiements.index');
         } catch (\Exception $e) {
@@ -119,5 +129,25 @@ class AdmAgcPaiementController extends Controller
             Alert::error('Erreur', 'Impossible de supprimer');
         }
         return redirect()->route('adm_agc_paiements.index');
+    }
+
+    public function print($id)
+    {
+        $paiement = Paiement::find($id);
+        $data = [
+            'paiement' => $paiement,
+        ];
+
+        $logoPath = public_path('main/assets/images/logo/icone.jpg');
+        $logoData = ($logoPath) ? file_get_contents($logoPath) : null;
+        $logoSrc = 'data:image/png;base64,' . $logoData;
+
+        $total = Paiement::where('candidat_id', $paiement->candidat_id)
+            ->where('service_id', $paiement->service_id)
+            ->sum('montant');
+        $remain = $paiement->service->cout - $total;
+
+        $pdf = PDF::loadView('agence_admin.paiements.pdf', compact('logoPath', 'paiement', 'total', 'remain'));
+        return $pdf->download('facture.pdf');
     }
 }

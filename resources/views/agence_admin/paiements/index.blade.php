@@ -52,6 +52,7 @@
                                     <td>{{ $paiement->observation }}</td>
                                     <td>{{ $paiement->candidat->nom }} {{ $paiement->candidat->prenom }}</td>
                                     <td>
+                                        <a href="{{ route('adm_agc_paiements.print', $paiement->id) }}" class="btn btn-square btn-info m-1"><i class="fa-solid fa-print"></i></a>
                                         @can('view', $paiement)
                                         <a href="{{ route('adm_agc_paiements.show', $paiement->id) }}" class="btn btn-square btn-info m-1"><i class="fa-solid fa-eye"></i></a>
                                         @endcan

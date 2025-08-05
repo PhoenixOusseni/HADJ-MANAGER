@@ -124,6 +124,8 @@ Route::middleware(['auth', 'role:AdministrateurAgence,Administrateur'])->group(f
     Route::get('adm_agc_hotels/form/{id}', [AdmAgcHotelController::class, 'form'])->name('adm_agc_hotels.form');
     Route::get('adm_agc_paiements/form/{id}', [AdmAgcPaiementController::class, 'form'])->name('adm_agc_paiements.form');
     Route::get('adm_agc_vols/form/{id}', [AdmAgcVolController::class, 'form'])->name('adm_agc_vols.form');
+
+    Route::get('adm_agc_paiements/print/{id}', [AdmAgcPaiementController::class, 'print'])->name('adm_agc_paiements.print');
 });
 
 Auth::routes();
