@@ -30,7 +30,7 @@ class AdmAgcServiceController extends Controller
         $validated = $request->validate([
             'libelle' => 'required|string',
             'cout' => 'required|numeric',
-            'categorie' => 'required|string',
+            'categorie' => 'nullable|string',
             'edition' => 'nullable|string',
             'observation' => 'nullable|string',
         ]);

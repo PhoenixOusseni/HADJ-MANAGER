@@ -6,6 +6,7 @@ use App\Models\Agent;
 use App\Models\Agence;
 use App\Models\Service;
 use App\Models\Candidat;
+use App\Models\Paiement;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Helpers\AdminHelpers;
@@ -166,9 +167,13 @@ class AdmAgcCandidatController extends Controller
     public function show($id)
     {
         $candidat = Candidat::find($id);
+        $total = Paiement::where('candidat_id', $candidat->id)
+            ->where('service_id', $candidat->service_id)
+            ->sum('montant');
+        $remain = $candidat->service->cout - $total;
         $paiements = $candidat->paiements()->latest()->get();
 
-        return view('agence_admin.candidats.show', compact('candidat', 'paiements'));
+        return view('agence_admin.candidats.show', compact('candidat', 'paiements', 'total', 'remain'));
     }
 
     public function destroy($id)
