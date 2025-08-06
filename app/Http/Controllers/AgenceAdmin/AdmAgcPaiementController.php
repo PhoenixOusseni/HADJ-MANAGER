@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Helpers\AdminHelpers;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
-use NumberFormatter;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AdmAgcPaiementController extends Controller
@@ -138,6 +137,7 @@ class AdmAgcPaiementController extends Controller
             'paiement' => $paiement,
         ];
 
+        $paiements = Paiement::where('candidat_id', $paiement->candidat_id)->get();
         $logoPath = public_path('main/assets/images/logo/icone.jpg');
         $logoData = ($logoPath) ? file_get_contents($logoPath) : null;
         $logoSrc = 'data:image/png;base64,' . $logoData;
@@ -147,7 +147,7 @@ class AdmAgcPaiementController extends Controller
             ->sum('montant');
         $remain = $paiement->service->cout - $total;
 
-        $pdf = PDF::loadView('agence_admin.paiements.pdf', compact('logoPath', 'paiement', 'total', 'remain'));
+        $pdf = PDF::loadView('agence_admin.paiements.pdf', compact('logoPath', 'paiement', 'total', 'remain', 'paiements'));
         return $pdf->download('facture.pdf');
     }
 }

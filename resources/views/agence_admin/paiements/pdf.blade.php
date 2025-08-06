@@ -12,18 +12,30 @@
         }
 
         .header {
-            text-align: center;
+            width: 100% !important;
             margin-bottom: 30px;
+            text-align: center;
         }
 
-        .header img {
+        .header td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        img {
             width: 150px;
             height: auto;
         }
 
-        .header h1 {
+        .header-text {
+            line-height: 1.4;
+            text-align: right;
+        }
+
+        .header-text h1 {
+            margin: 0;
+            font-size: 22px;
             color: #009879;
-            margin: 5px 0;
         }
 
         .info,
@@ -94,15 +106,20 @@
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <img src="{{ $logoPath }}" alt="Logo Agence AT">
-        <h1>{{ $paiement->service->agence->libelle ?? 'N/A' }}</h1>
-        <div>Agence de voyages-Tourisme - Hadj et Oumra</div>
-        <div>{{ $paiement->service->agence->adress ?? 'N/A' }}</div>
-        <div>Email: {{ $paiement->service->agence->email ?? 'N/A' }}</div>
-        <div>Tel: {{ $paiement->service->agence->telephone ?? 'N/A' }} / {{ $paiement->service->agence->whatsapp ?? 'N/A' }}</div>
-    </div>
+    <table class="header">
+        <tr>
+            <td><img src="{{ $logoPath }}" alt="Logo Agence AT"></td>
+            <td>
+                <div class="header-text">
+                    <h1>{{ $paiement->service->agence->libelle ?? 'N/A' }}</h1>
+                    <div>Agence de voyages-Tourisme - Hadj et Oumra</div>
+                    <div>{{ $paiement->service->agence->adress ?? 'N/A' }}</div>
+                    <div>Email: {{ $paiement->service->agence->email ?? 'N/A' }}</div>
+                    <div>Tel: {{ $paiement->service->agence->telephone ?? 'N/A' }} / {{ $paiement->service->agence->whatsapp ?? 'N/A' }}</div>
+                </div>
+            </td>
+        </tr>
+    </table>
 
     <table class="info-table">
         <tr>
@@ -130,26 +147,27 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($paiements as $payment)
             <tr>
-                <td>435</td>
-                <td>{{ $paiement->mode_paiement ?? 'N/A' }}</td>
-                <td>{{ $paiement->service->libelle ?? 'N/A' }}</td>
-                <td>{{ $paiement->date_paiement ?? 'N/A'}}</td>
-                <td>{{ $paiement->montant ?? 'N/A'}} CFA</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $payment->mode_paiement ?? 'N/A' }}</td>
+                <td>{{ $payment->service->libelle ?? 'N/A' }}</td>
+                <td>{{ $payment->created_at->format('Y-m-d') ?? 'N/A' }}</td>
+                <td>{{ $payment->montant ?? 'N/A'}} FCFA</td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 
     <div class="amounts">
-        Montant payé : <strong>{{ $paiement->montant ?? 'N/A'}}</strong> &nbsp;&nbsp; | &nbsp;&nbsp;
-        Total versé : <strong>{{ $total ?? 'N/A'}} FCFA</strong> &nbsp;&nbsp; | &nbsp;&nbsp;
-        Reste à payer : <span class="bold-red">{{ $remain  ?? 'N/A'}} FCFA</span><br><br>
-        La somme en lettre : <strong>Deux Cent Cinquante Mille FCFA</strong>
+        Montant payé : <strong>{{ number_format($paiement->montant ?? 0, 0, ',', ' ') }}</strong> &nbsp;&nbsp; | &nbsp;&nbsp;
+        Total versé : <strong>{{ number_format($total ?? 0, 0, ',', ' ') }} FCFA</strong> &nbsp;&nbsp; | &nbsp;&nbsp;
+        Reste à payer : <span class="bold-red">{{ number_format($remain ?? 0, 0, ',', ' ') }} FCFA</span><br><br>
     </div>
 
     <table class="signatures">
         <tr>
-            <td>Agent Comptoir<br><br><strong>YABRE-ISSAKA</strong></td>
+            <td>Agent Comptoir<br><br><strong>{{ auth()->user()->code ?? '--------' }}</strong></td>
             <td>Délégué ou facilitateur<br><br><strong>{{ $paiement->candidat->agent->code ?? '--------' }}</strong></td>
             <td>Imprimé et Remis le<br><br>{{ date('d/m/Y H:i:s') }}</td>
             <td>La caisse<br><br>--------------------</td>
@@ -161,6 +179,5 @@
         Merci de bien vouloir vérifier le montant de vos versements sur le reçu devant notre caissier(e)<br>
         Original pour client
     </div>
-
 </body>
 </html>
