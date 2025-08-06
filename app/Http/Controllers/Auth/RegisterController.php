@@ -61,10 +61,27 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+
+    private function generateAgentCode()
+    {
+        $prefix = 'CID-';
+        $number = str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT);
+
+        do {
+            $code = $prefix . $number;
+            $exists = User::where('code', $code)->exists();
+            if ($exists) {
+                $number = str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT);
+            }
+        } while ($exists);
+
+        return $code;
+    }
     protected function create(array $data)
     {
         return User::create([
             'email' => $data['email'],
+            'code' => $this->generateAgentCode(),
             'nom' => 'Martha',
             'prenom' => 'Mall',
             'username' => 'martha',

@@ -23,6 +23,22 @@ class UserController extends Controller
         return view('admin.users.create', compact('roles'));
     }
 
+    private function generateAgentCode()
+    {
+        $prefix = 'CID-';
+        $number = str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT);
+
+        do {
+            $code = $prefix . $number;
+            $exists = User::where('code', $code)->exists();
+            if ($exists) {
+                $number = str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT);
+            }
+        } while ($exists);
+
+        return $code;
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -46,6 +62,7 @@ class UserController extends Controller
             }
 
             DB::table('users')->insert([
+                'code' => $this->generateAgentCode(),
                 'nom' => $request->nom,
                 'prenom' => $request->prenom,
                 'username' => $request->username,
