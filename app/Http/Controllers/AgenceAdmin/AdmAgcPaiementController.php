@@ -138,7 +138,7 @@ class AdmAgcPaiementController extends Controller
         ];
 
         $paiements = Paiement::where('candidat_id', $paiement->candidat_id)->get();
-        $logoPath = public_path('main/assets/images/logo/icone.jpg');
+        $logoPath = public_path('agence/logo/' . $paiement->candidat->agence->logo ??  'main/assets/images/logo/icone.jpg');
         $logoData = ($logoPath) ? file_get_contents($logoPath) : null;
         $logoSrc = 'data:image/png;base64,' . $logoData;
 
