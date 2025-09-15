@@ -49,6 +49,17 @@
                         @csrf
 
                         <div class="col-sm-3">
+                            <label class="form-label">Service</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="hidden" name="service_id" value="{{ $service->id }}">
+                            <input class="form-control" type="text" value="{{ $service->libelle }}" readonly>
+                            @error('service_id')
+                            <div class="text-danger mt-2">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="col-sm-3">
                             <label class="form-label">Nom</label>
                         </div>
                         <div class="col-sm-9">

@@ -62,7 +62,7 @@ class AdmAgcHotelController extends Controller
             $validated['agence_id'] = $agenceId;
             Hotel::create($validated);
             Alert::success('Succès', 'Hôtel ajouté avec succès.');
-            return redirect()->route('adm_agc_hotels.index');
+            return back();
         } catch (\Exception $e) {
             Alert::error('Erreur', 'Une erreur est survenue.');
             return back()->withInput()->withErrors([

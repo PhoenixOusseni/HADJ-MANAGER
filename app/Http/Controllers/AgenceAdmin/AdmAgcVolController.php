@@ -62,7 +62,7 @@ class AdmAgcVolController extends Controller
             $validated['agence_id'] = $agenceId;
             Vol::create($validated);
             Alert::success('Succès', 'Vol enregistré avec succès.');
-            return redirect()->route('adm_agc_vols.index');
+            return back();
         } catch (\Throwable $e) {
             Alert::error('Erreur', 'Erreur lors de l\'enregistrement.');
             return back()->withInput()->withErrors([

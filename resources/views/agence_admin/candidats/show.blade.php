@@ -151,7 +151,7 @@
             <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-body">
                     <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#addPayBackdrop"><i class="fa-solid fa-money-bill"></i>&thinsp;&thinsp;&thinsp; Ajouter un Paiement</a>
-                    <a href="#" class="btn btn-outline-warning-2x" data-bs-toggle="modal" data-bs-target="#addDipBackdrop"><i class="fa-solid fa-eye"></i>&thinsp;&thinsp;&thinsp; Historique des paiements</a>
+                    <a href="{{ route('adm_agc_paiements.print_history', $candidat->id) }}" class="btn btn-outline-warning-2x"><i class="fa-solid fa-eye"></i>&thinsp;&thinsp;&thinsp; Historique des paiements</a>
                     <a href="#" class="btn btn-outline-secondary-2x">Paiement total: {{ $total }}</a>
                     <a href="#" class="btn btn-outline-secondary-2x">Reste: {{ $remain }}</a>
                     <div class="table-responsive theme-scrollbar">

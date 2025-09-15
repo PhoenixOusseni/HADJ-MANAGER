@@ -92,7 +92,7 @@
                             <div class="custom-menu overflow-hidden">
                                 <ul class="profile-body">
                                     <li class="d-flex">
-                                        <i class="fa-solid fa-user"></i><a class="ms-2" href="#">Mon compte</a>
+                                        <i class="fa-solid fa-user"></i><a class="ms-2" href="{{ route('adm_agc_utilisateurs.edit', auth::user()->id) }}">Mon compte</a>
                                     </li>
                                     <li class="d-flex">
                                         <i class="fa-solid fa-sign-out"></i>
@@ -144,6 +144,7 @@
                             <ul class="sidebar-submenu">
                                 <li><a href="{{ route('adm_agc_utilisateurs.index') }}">Liste</a></li>
                                 <li><a href="{{ route('adm_agc_utilisateurs.create') }}">Ajouter</a></li>
+                                <li><a href="{{ route('adm_agc_agences.show', auth::user()->agenceAdmin) }}">Agence {{ auth::user()->agence }}</a></li>
                             </ul>
                         </li>
                         @endif

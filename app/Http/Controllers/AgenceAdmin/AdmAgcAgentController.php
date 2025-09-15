@@ -87,7 +87,7 @@ class AdmAgcAgentController extends Controller
             $agent->save();
 
             Alert::success('Succès', 'Agent enregistré');
-            return redirect()->route('adm_agc_agents.index');
+            return back();
         } catch (\Throwable $e) {
             Alert::error('Erreur', 'Échec de l\'enregistrement');
             return back()->withInput()->withErrors([

@@ -40,7 +40,7 @@ class AdmAgcServiceController extends Controller
             $validated['agence_id'] = $agenceId;
             Service::create($validated);
             Alert::success('Succès', 'Service créé avec succès.');
-            return redirect()->route('adm_agc_services.index');
+            return back();
         } catch (\Throwable $e) {
             Alert::error('Erreur', 'Erreur lors de la création.');
             return back()->withInput()->withErrors([

@@ -23,8 +23,9 @@ class AgenceController extends Controller
         return view('admin.agences.create', compact('users'));
     }
 
-    public function show(Agence $agence)
+    public function show($id)
     {
+        $agence = Agence::findOrFail($id);
         return view('admin.agences.show', compact('agence'));
     }
 

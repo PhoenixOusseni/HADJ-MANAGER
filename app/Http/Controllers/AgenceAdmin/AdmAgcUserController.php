@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\AgenceAdmin;
 
-use App\Models\Administrateur;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Helpers\AdminHelpers;
+use App\Models\Administrateur;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -18,14 +19,22 @@ class AdmAgcUserController extends Controller
     {
         $agenceId = AdminHelpers::getAdminAgenceId();
         $users = $agenceId ? User::where('agence_id', $agenceId)->latest()->get() : null;
-
-        return view('agence_admin.users.index', compact('users'));
+        $agence = AdminHelpers::getAdminAgence();
+        return view('agence_admin.users.index', compact('users', 'agence'));
     }
 
     public function create()
     {
+        $agenceId = AdminHelpers::getAdminAgenceId();
+        $services = Service::where('agence_id', $agenceId)->latest()->get();
+        return view('agence_admin.users.portal', compact( 'services'));
+    }
+
+    public function form($id)
+    {
+        $service = Service::find($id);
         $roles = Role::all();
-        return view('agence_admin.users.create', compact('roles'));
+        return view('agence_admin.users.create', compact( 'roles','service'));
     }
 
     private function generateAgentCode()
@@ -94,7 +103,7 @@ class AdmAgcUserController extends Controller
             $admin->save();
 
             Alert::success('Succès', 'Utilisateur créé avec succès.');
-            return redirect()->route('adm_agc_utilisateurs.index');
+            return back();
         } catch (\Throwable $e) {
             Alert::error('Erreur', 'Erreur lors de l\'enregistrement.');
             return back()->withInput()->withErrors([
@@ -128,8 +137,6 @@ class AdmAgcUserController extends Controller
             'telephone' => 'nullable|string',
             'password' => 'nullable|string|confirmed',
             'photo' => 'nullable|image',
-            'statut' => 'nullable|in:Actif,Inactif',
-            'role_id' => 'required|exists:roles,id',
         ]);
 
         try {
@@ -149,7 +156,7 @@ class AdmAgcUserController extends Controller
             $user->update($validated);
 
             Alert::success('Succès', 'Utilisateur mis à jour avec succès.');
-            return route('utilisateurs.index');
+            return redirect()->route('adm_agc_utilisateurs.index');
         } catch (\Throwable $e) {
             Alert::error('Erreur', 'Erreur lors de la mise à jour.');
             return back()->withInput()->withErrors([

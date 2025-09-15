@@ -47,7 +47,7 @@ class AdmAgcCarController extends Controller
             $validated['agence_id'] = $agenceId;
             Car::create($validated);
             Alert::success('Succès', 'Véhicule enregistré');
-            return redirect()->route('adm_agc_cars.index');
+            return back();
         } catch (\Throwable $e) {
             Alert::error('Erreur', 'Erreur d\'enregistrement');
             return back()->withInput()->withErrors([
@@ -60,7 +60,7 @@ class AdmAgcCarController extends Controller
         $car = Car::find($id);
         return view('agence_admin.cars.show', compact('car'));
     }
-    
+
     public function edit($id)
     {
         $car = Car::find($id);

@@ -97,7 +97,7 @@ class AdmAgcCandidatController extends Controller
             Candidat::create($validated);
 
             Alert::success('Succès', 'Candidat enregistré');
-            return redirect()->route('adm_agc_candidats.index');
+            return back();
         } catch (\Throwable $e) {
             Alert::error('Erreur', 'Échec de l\'enregistrement');
             return back()->withInput()->withErrors([
@@ -157,6 +157,7 @@ class AdmAgcCandidatController extends Controller
             $candidat->fill($validated)->save();
 
             Alert::success('Succès', 'Candidat mis à jour');
+            return back();
             return redirect()->route('adm_agc_candidats.index');
         } catch (\Throwable $e) {
             Alert::error('Erreur', 'Mise à jour échouée');

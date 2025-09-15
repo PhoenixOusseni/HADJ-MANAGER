@@ -29,7 +29,7 @@
         <div class="col-md-12">
             <div class="card shadow" style="border-radius: 5px;">
                 <div class="card-header card-no-border">
-                    <h3>Formulaire </h3>
+                    <h3>Formulaire de mise a jour du compte</h3>
                 </div>
                 <div class="card-body basic-form">
                     @if (session('error'))
@@ -106,31 +106,6 @@
                             @if($user->photo)
                             <small class="form-text text-muted">Photo actuelle : {{ $user->photo }}</small>
                             @endif
-                        </div>
-
-                        <div class="col-sm-3">
-                            <label class="form-label">Statut</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <select class="form-control" name="statut">
-                                <option value="">-- Sélectionner un statut --</option>
-                                <option value="Actif" {{ old('statut', $user->statut) == 'Actif' ? 'selected' : '' }}>Actif</option>
-                                <option value="Inactif" {{ old('statut', $user->statut) == 'Inactif' ? 'selected' : '' }}>Inactif</option>
-                            </select>
-                        </div>
-
-                        <div class="col-sm-3">
-                            <label class="form-label">Rôle</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <select class="form-control" name="role_id" required>
-                                <option value="">-- Sélectionner un rôle --</option>
-                                @foreach($roles as $role)
-                                <option value="{{ $role->id }}" {{ old('role_id', $user->role_id) == $role->id ? 'selected' : '' }}>
-                                    {{ $role->nom }}
-                                </option>
-                                @endforeach
-                            </select>
                         </div>
 
                         <div class="col-12 text-end">

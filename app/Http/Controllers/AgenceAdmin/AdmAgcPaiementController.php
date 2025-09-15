@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AgenceAdmin;
 use App\Models\Service;
 use App\Models\Candidat;
 use App\Models\Paiement;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Helpers\AdminHelpers;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -68,9 +69,23 @@ class AdmAgcPaiementController extends Controller
         ]);
 
         try {
-            Paiement::create($validated);
-            Alert::success('Succès', 'Paiement enregistré avec succès');
-            return redirect()->route('adm_agc_paiements.index');
+            $candidat = Candidat::findOrFail($request->candidat_id);
+            $service = Service::findOrFail($request->service_id);
+
+            $total = Paiement::where('candidat_id', $candidat->id)
+                ->where('service_id', $service->id)
+                ->sum('montant');
+            $remain = $service->cout - $total;
+
+            if($remain < $request->montant){
+                Alert::error('Erreur', 'Le montant du paiement est supérieur au reste à payer');
+                return back()->withInput();
+            }else{
+                Paiement::create($validated);
+                Alert::success('Succès', 'Paiement enregistré avec succès');
+                return back();
+            }
+
         } catch (\Exception $e) {
             Alert::error('Erreur', 'Une erreur est survenue');
             return back()->withInput()->withErrors([
@@ -137,7 +152,6 @@ class AdmAgcPaiementController extends Controller
             'paiement' => $paiement,
         ];
 
-        $paiements = Paiement::where('candidat_id', $paiement->candidat_id)->get();
         $logoPath = public_path('agence/logo/' . $paiement->candidat->agence->logo ??  'main/assets/images/logo/icone.jpg');
         $logoData = ($logoPath) ? file_get_contents($logoPath) : null;
         $logoSrc = 'data:image/png;base64,' . $logoData;
@@ -147,7 +161,30 @@ class AdmAgcPaiementController extends Controller
             ->sum('montant');
         $remain = $paiement->service->cout - $total;
 
-        $pdf = PDF::loadView('agence_admin.paiements.pdf', compact('logoPath', 'paiement', 'total', 'remain', 'paiements'));
-        return $pdf->download('facture.pdf');
+        $pdf = PDF::loadView('agence_admin.paiements.invoice_pdf', compact('logoPath', 'paiement', 'total', 'remain'));
+        $fileName = 'facture_' . $paiement->id . '_' . Str::slug($paiement->candidat->nom) . '.pdf';
+        return $pdf->download($fileName);
+    }
+
+    public function print_history($id)
+    {
+        $candidat = Candidat::find($id);
+
+        $paiements = Paiement::where('candidat_id', $candidat->id)->get();
+        $data = [
+            'paiements' => $paiements,
+        ];
+
+        $logoPath = public_path('agence/logo/' . $candidat->agence->logo ??  'main/assets/images/logo/icone.jpg');
+        $logoData = ($logoPath) ? file_get_contents($logoPath) : null;
+        $logoSrc = 'data:image/png;base64,' . $logoData;
+
+        $total = $paiements->where('service_id', $candidat->service_id)
+            ->sum('montant');
+        $remain = $candidat->service->cout - $total;
+
+        $pdf = PDF::loadView('agence_admin.paiements.history_pdf', compact('logoPath',  'total', 'remain', 'paiements', 'candidat'));
+        $fileName = 'facture_' . '_' . Str::slug($candidat->nom) . '.pdf';
+        return $pdf->download($fileName);
     }
 }

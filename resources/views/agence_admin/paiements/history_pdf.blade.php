@@ -111,11 +111,11 @@
             <td><img src="{{ $logoPath }}" alt="Logo Agence AT"></td>
             <td>
                 <div class="header-text">
-                    <h1>{{ $paiement->service->agence->libelle ?? 'N/A' }}</h1>
+                    <h1>{{ $candidat->service->agence->libelle ?? 'N/A' }}</h1>
                     <div>Agence de voyages-Tourisme - Hadj et Oumra</div>
-                    <div>{{ $paiement->service->agence->adress ?? 'N/A' }}</div>
-                    <div>Email: {{ $paiement->service->agence->email ?? 'N/A' }}</div>
-                    <div>Tel: {{ $paiement->service->agence->telephone ?? 'N/A' }} / {{ $paiement->service->agence->whatsapp ?? 'N/A' }}</div>
+                    <div>{{ $candidat->service->agence->adress ?? 'N/A' }}</div>
+                    <div>Email: {{ $candidat->service->agence->email ?? 'N/A' }}</div>
+                    <div>Tel: {{ $candidat->service->agence->telephone ?? 'N/A' }} / {{ $candidat->service->agence->whatsapp ?? 'N/A' }}</div>
                 </div>
             </td>
         </tr>
@@ -123,16 +123,16 @@
 
     <table class="info-table">
         <tr>
-            <td><strong>ID INSCRIT:</strong> {{ $paiement->candidat->id_inscription ?? 'N/A' }}</td>
-            <td><strong>NOM:</strong> {{ $paiement->candidat->nom ?? 'N/A' }}</td>
+            <td><strong>ID INSCRIT:</strong> {{ $candidat->id_inscription ?? 'N/A' }}</td>
+            <td><strong>NOM:</strong> {{ $candidat->nom ?? 'N/A' }}</td>
         </tr>
         <tr>
-            <td><strong>N°PASSEPORT/CNIB:</strong> <span class="bold-text">{{ $paiement->candidat->numero_piece ?? 'N/A' }}</span></td>
-            <td><strong>PRENOMS:</strong> {{ $paiement->candidat->prenom ?? 'N/A' }}</td>
+            <td><strong>N°PASSEPORT/CNIB:</strong> <span class="bold-text">{{ $candidat->numero_piece ?? 'N/A' }}</span></td>
+            <td><strong>PRENOMS:</strong> {{ $candidat->prenom ?? 'N/A' }}</td>
         </tr>
         <tr>
-            <td><strong>ID OFFICE:</strong> {{ $paiement->candidat->office_code ?? 'N/A' }}</td>
-            <td><strong>Date inscription:</strong> {{ $paiement->candidat->date_delivrance ?? 'N/A' }}</td>
+            <td><strong>ID OFFICE:</strong> {{ $candidat->office_code ?? 'N/A' }}</td>
+            <td><strong>Date inscription:</strong> {{ $candidat->date_delivrance ?? 'N/A' }}</td>
         </tr>
     </table>
 
@@ -160,7 +160,7 @@
     </table>
 
     <div class="amounts">
-        Montant payé : <strong>{{ number_format($paiement->montant ?? 0, 0, ',', ' ') }}</strong> &nbsp;&nbsp; | &nbsp;&nbsp;
+        Montant Total : <strong>{{ $candidat->service->cout ?? '' }} FCFA</strong> &nbsp;&nbsp; | &nbsp;&nbsp;
         Total versé : <strong>{{ number_format($total ?? 0, 0, ',', ' ') }} FCFA</strong> &nbsp;&nbsp; | &nbsp;&nbsp;
         Reste à payer : <span class="bold-red">{{ number_format($remain ?? 0, 0, ',', ' ') }} FCFA</span><br><br>
     </div>
@@ -168,14 +168,13 @@
     <table class="signatures">
         <tr>
             <td>Agent Comptoir<br><br><strong>{{ auth()->user()->code ?? '--------' }}</strong></td>
-            <td>Délégué ou facilitateur<br><br><strong>{{ $paiement->candidat->agent->code ?? '--------' }}</strong></td>
+            <td>Délégué ou facilitateur<br><br><strong>{{ $candidat->agent->code ?? '--------' }}</strong></td>
             <td>Imprimé et Remis le<br><br>{{ date('d/m/Y H:i:s') }}</td>
             <td>La caisse<br><br>--------------------</td>
         </tr>
     </table>
 
     <div class="footer-note">
-        Decompte : <span class="highlight">{{ $paiement->id ?? '0'}}</span><br><br>
         Merci de bien vouloir vérifier le montant de vos versements sur le reçu devant notre caissier(e)<br>
         Original pour client
     </div>

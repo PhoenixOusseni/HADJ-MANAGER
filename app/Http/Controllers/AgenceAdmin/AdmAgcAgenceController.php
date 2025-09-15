@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AgenceAdmin;
 use App\Models\User;
 use App\Models\Agence;
 use Illuminate\Http\Request;
+use App\Helpers\AdminHelpers;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -12,13 +13,16 @@ class AdmAgcAgenceController extends Controller
 {
     public function edit($id)
     {
-        $users = User::all();
+        $agenceId = AdminHelpers::getAdminAgenceId();
+        $users = $agenceId ? User::where('agence_id', $agenceId)->latest()->get() : null;
         $agence = Agence::findOrFail($id);
         return view('agence_admin.agences.edit', compact('agence', 'users'));
     }
 
-    public function show($id){
-        return 'Page en costruction';
+    public function show($id)
+    {
+        $agence = Agence::findOrFail($id);
+        return view('agence_admin.agences.show', compact('agence'));
     }
 
     public function update(Request $request, $id)
@@ -54,7 +58,7 @@ class AdmAgcAgenceController extends Controller
                 'logo' => $logoName ?? null,
             ]);
             Alert::success('Succès', 'Agence mise à jour avec succès.');
-            return redirect()->route('adm_agc_agences.index');
+            return back();
         } catch (\Throwable $e) {
             Alert::error('Erreur', 'Échec de la mise à jour.');
             return back()->withInput()->withErrors([
